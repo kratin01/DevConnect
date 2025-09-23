@@ -19,8 +19,9 @@ const Body = () => {
       });
       dispatch(addUser(res.data));
     } catch (error) {
-      if (error.stauts === 401) navigate("/login");
-
+      if (error.response?.status === 401) {
+        navigate("/login");
+      }
       console.log("Error: ", error);
     }
   };
@@ -29,9 +30,11 @@ const Body = () => {
     fetchUser();
   }, []);
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <NavBar />
-      <Outlet />
+      <main className="flex-1">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

@@ -56,37 +56,54 @@ const UserCard = ({ user }) => {
   };
 
   return (
-    <div className="card bg-base-100 w-96 shadow-2xl border border-base-content/10 transition-shadow duration-300 hover:shadow-primary/50">
-      <figure className="h-56">
+    <div className="card bg-base-100 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-sm xl:max-w-md shadow-2xl border border-base-content/10 transition-all duration-300 hover:shadow-primary/30 hover:scale-[1.02] hover:-translate-y-1 rounded-2xl overflow-hidden">
+      <figure className="relative h-64 sm:h-72 md:h-80 lg:h-64 xl:h-72 overflow-hidden">
         <img
           src={
             profileUrl ||
-            `https://ui-avatars.com/api/?name=${formattedFirstName}+${formattedLastName}&background=random`
+            `https://ui-avatars.com/api/?name=${formattedFirstName}+${formattedLastName}&background=random&size=400&bold=true`
           }
           alt={`Profile of ${formattedFirstName} ${formattedLastName}`}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
       </figure>
-      <div className="card-body">
-        <h2 className="card-title text-2xl font-bold">
-          {/* Use the formatted names here */}
-          {formattedFirstName} {formattedLastName}
-        </h2>
-
-        <div className="flex gap-2 my-2">
-          {age && <div className="badge badge-info">{age} years</div>}
-          {gender && <div className="badge badge-neutral">{gender}</div>}
+      
+      <div className="card-body p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="card-title text-xl sm:text-2xl font-bold text-base-content">
+            {formattedFirstName} {formattedLastName}
+          </h2>
+          <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
         </div>
 
-        <p className="text-base-content/80 line-clamp-3 min-h-[72px]">
-          {about}
-        </p>
+        <div className="flex flex-wrap gap-2">
+          {age && (
+            <div className="badge badge-info badge-lg font-medium px-3 py-2">
+              {age} years
+            </div>
+          )}
+          {gender && (
+            <div className="badge badge-neutral badge-lg font-medium px-3 py-2">
+              {gender}
+            </div>
+          )}
+        </div>
 
-        <div className="card-actions justify-end mt-4">
-          <button className="btn btn-ghost" onClick={handleIgnore}>
+        <div className="min-h-[80px]">
+          <p className="text-base-content/80 text-sm sm:text-base leading-relaxed line-clamp-3">
+            {about}
+          </p>
+        </div>
+
+        <div className="card-actions justify-between mt-6">
+          <button 
+            className="btn btn-ghost btn-sm sm:btn-md hover:btn-error transition-all duration-200 flex-1 max-w-[120px]"
+            onClick={handleIgnore}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-4 w-4 sm:h-5 sm:w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -98,12 +115,16 @@ const UserCard = ({ user }) => {
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
-            Ignore
+            <span className="hidden sm:inline">Ignore</span>
           </button>
-          <button className="btn btn-primary" onClick={handleInterested}>
+          
+          <button 
+            className="btn btn-primary btn-sm sm:btn-md hover:btn-secondary transition-all duration-200 flex-1 max-w-[120px] shadow-lg hover:shadow-xl"
+            onClick={handleInterested}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-4 w-4 sm:h-5 sm:w-5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -115,7 +136,7 @@ const UserCard = ({ user }) => {
                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
               />
             </svg>
-            Interested
+            <span className="hidden sm:inline">Interested</span>
           </button>
         </div>
       </div>
