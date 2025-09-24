@@ -8,12 +8,14 @@ import appStore from "./utlis/appStore";
 import Feed from "./pages/Feed";
 import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
   return (
     <>
       <Provider store={appStore}>
-        <Toaster
+        <ThemeProvider>
+          <Toaster
           position="top-center"
           toastOptions={{
             duration: 3000,
@@ -34,6 +36,7 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter>
+        </ThemeProvider>
       </Provider>
     </>
   );
