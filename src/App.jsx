@@ -9,6 +9,7 @@ import Feed from "./pages/Feed";
 import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -28,10 +29,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Body />}>
-              <Route path="/" element={<Feed />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/feed" element={<Feed />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/connections" element={<Connections />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/requests" element={<Requests />} />
             </Route>
           </Routes>

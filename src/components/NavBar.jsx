@@ -27,35 +27,36 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-lg border-b border-base-content/10 px-4 sm:px-6 lg:px-8">
-      <div className="flex-1 w-1 flex items-center gap-3">
-  {/* Logo (not clickable) */}
-  <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-sm">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-5 w-5 text-white"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-      />
-    </svg>
-  </div>
+    <div className="navbar bg-base-300 px-4 sm:px-6 lg:px-8">
+      <div className="flex-1">
+        <Link 
+          to={user ? "/feed" : "/"} 
+          className="flex items-center gap-3"
+        >
+          {/* Logo */}
+          <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-sm">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+              />
+            </svg>
+          </div>
 
-  {/* Brand Text (clickable link) */}
-  <Link
-    to="/"
-    className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:underline transition-all duration-200"
-  >
-    DevConnect
-  </Link>
-</div>
-
+          {/* Brand Text */}
+          <div className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:underline transition-all duration-200">
+            DevConnect
+          </div>
+        </Link>
+      </div>
 
       {/* Theme Toggle Button */}
       <button
@@ -83,7 +84,7 @@ const NavBar = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
             fill="none"
-            viewBox="0 0 24 24"
+            viewBox="0 0 24"
             stroke="currentColor"
           >
             <path
