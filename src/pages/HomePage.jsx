@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const user = useSelector((state) => state.user);
@@ -16,17 +16,19 @@ const HomePage = () => {
                 Welcome to DevConnect
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6">
-                Connect<span className="text-primary"> </span> Collaborate<span className="text-primary"> </span>
+                Connect<span className="text-primary"> </span> Collaborate
+                <span className="text-primary"> </span>
                 <br />
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Code Together
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-base-content/70 mb-8 max-w-2xl leading-relaxed">
-                Join our thriving developer community where innovation meets collaboration.
-                Connect with passionate developers, showcase your projects, and build something amazing together.
+                Join our thriving developer community where innovation meets
+                collaboration. Connect with passionate developers, showcase your
+                projects, and build something amazing together.
               </p>
-              {!user && (
+              {!user ? (
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
                   <Link
                     to="/login"
@@ -39,10 +41,30 @@ const HomePage = () => {
                     className="group flex items-center gap-2 px-4 py-2 text-base-content/70 hover:text-primary transition-colors duration-300"
                   >
                     Learn More
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </a>
+                </div>
+              ) : (
+                <div className="flex justify-center lg:justify-start">
+                  <Link
+                    to="/feed"
+                    className="btn btn-primary btn-lg px-8 shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 transition-all duration-300"
+                  >
+                    Explore Feed
+                  </Link>
                 </div>
               )}
             </div>
