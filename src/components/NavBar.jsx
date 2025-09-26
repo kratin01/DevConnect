@@ -27,12 +27,13 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 px-4 sm:px-6 lg:px-8">
+    <div
+      className={`navbar px-4 sm:px-6 lg:px-8 ${
+        user ? "bg-base-200" : "bg-[#151A1F]"
+      }`}
+    >
       <div className="flex-1">
-        <Link 
-          to={user ? "/feed" : "/"} 
-          className="flex items-center gap-3"
-        >
+        <Link to={user ? "/feed" : "/"} className="flex items-center gap-3">
           {/* Logo */}
           <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center shadow-sm">
             <svg
@@ -64,7 +65,7 @@ const NavBar = () => {
         className="btn btn-ghost btn-circle mr-2"
         aria-label="Toggle theme"
       >
-        {theme === 'light' ? (
+        {theme === "light" ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -99,8 +100,8 @@ const NavBar = () => {
 
       {!user ? (
         <div className="flex-none">
-          <button 
-            className="btn btn-primary btn-sm sm:btn-md shadow-lg hover:shadow-xl transition-all duration-200" 
+          <button
+            className="btn btn-primary btn-sm sm:btn-md shadow-lg hover:shadow-xl transition-all duration-200"
             onClick={navigateLogin}
           >
             <svg
@@ -123,7 +124,10 @@ const NavBar = () => {
       ) : (
         <div className="flex-none flex items-center gap-2 sm:gap-3">
           <span className="hidden sm:inline font-medium text-sm lg:text-base text-base-content/80">
-            Welcome, <span className="capitalize font-semibold text-base-content">{user.firstName}</span>
+            Welcome,{" "}
+            <span className="capitalize font-semibold text-base-content">
+              {user.firstName}
+            </span>
           </span>
 
           <div className="dropdown dropdown-end">
@@ -133,9 +137,12 @@ const NavBar = () => {
               className="btn btn-ghost btn-circle avatar hover:scale-105 transition-transform duration-200"
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden">
-                <img 
-                  alt="user avatar" 
-                  src={user.profileUrl || `https://ui-avatars.com/api/?name=${user.firstName}&background=random&size=100&bold=true`}
+                <img
+                  alt="user avatar"
+                  src={
+                    user.profileUrl ||
+                    `https://ui-avatars.com/api/?name=${user.firstName}&background=random&size=100&bold=true`
+                  }
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -145,8 +152,8 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-2xl z-50 mt-3 w-56 p-2 shadow-xl border border-base-content/10"
             >
               <li>
-                <Link 
-                  to="/profile" 
+                <Link
+                  to="/profile"
                   className="justify-between hover:bg-primary/10 rounded-xl transition-colors duration-200"
                 >
                   <div className="flex items-center gap-3">
@@ -170,8 +177,8 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/connections" 
+                <Link
+                  to="/connections"
                   className="hover:bg-primary/10 rounded-xl transition-colors duration-200"
                 >
                   <svg
@@ -192,8 +199,8 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/requests" 
+                <Link
+                  to="/requests"
                   className="hover:bg-primary/10 rounded-xl transition-colors duration-200"
                 >
                   <svg
@@ -215,7 +222,7 @@ const NavBar = () => {
               </li>
               <div className="divider my-1"></div>
               <li>
-                <button 
+                <button
                   onClick={handleLogout}
                   className="hover:bg-error/10 text-error rounded-xl transition-colors duration-200"
                 >
