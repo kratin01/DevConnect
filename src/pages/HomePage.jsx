@@ -68,8 +68,8 @@ const HomePage = () => {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-base-content/80 mb-10 max-w-3xl leading-relaxed">
-                The ultimate platform for developers to **network**, **showcase
-                their portfolio**, and **collaborate** on innovative projects.
+                The ultimate platform for developers to network, showcase
+                their portfolio, and collaborate on innovative projects.
                 Your next great idea starts here.
               </p>
               {!user ? (
