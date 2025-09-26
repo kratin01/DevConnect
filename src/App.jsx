@@ -10,6 +10,10 @@ import Connections from "./pages/Connections";
 import Requests from "./pages/Requests";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import HomePage from "./pages/HomePage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import RefundPolicy from "./pages/RefundPolicy";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -35,6 +39,10 @@ function App() {
               <Route path="/connections" element={<Connections />} />
               <Route path="/login" element={<Login />} />
               <Route path="/requests" element={<Requests />} />
+              <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/contact" element={<ContactUs />} />
             </Route>
           </Routes>
         </BrowserRouter>
