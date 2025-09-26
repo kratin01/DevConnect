@@ -26,7 +26,7 @@ const featureList = [
     icon: Code,
     title: "Showcase Your Projects",
     description:
-      "Display your latest work, get valuable feedback, and gain visibility within the developer ecosystem.",
+      "Display your latest work, get valuable feedback, and gain visibility within the developer ecosystem. ",
   },
   {
     icon: Zap,
