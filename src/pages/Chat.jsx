@@ -6,7 +6,6 @@ import axios from "axios";
 import { baseUrl } from "../utlis/contants";
 import { useTheme } from "../contexts/ThemeContext";
 
-
 const Chat = () => {
   const { id } = useParams();
   const targetUserId = id;
@@ -59,7 +58,6 @@ const Chat = () => {
     };
   }, [userId, targetUserId]);
 
-  // smooth scroll to bottom
   useEffect(() => {
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTo({
@@ -92,7 +90,7 @@ const Chat = () => {
         bg-transparent`}
     >
       <h1
-        className={`p-5 border-b transition-colors duration-300 
+        className={`p-3 sm:p-4 md:p-5 border-b transition-colors duration-300 
           ${theme === "dark" ? "border-gray-700" : "border-gray-300"}
         `}
       >
@@ -101,7 +99,7 @@ const Chat = () => {
 
       <div
         ref={messagesContainerRef}
-        className="flex-1 overflow-y-auto p-5 space-y-3"
+        className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 space-y-3"
       >
         {messages.map((msg, index) => {
           const isMe = user.firstName === msg.firstName;
@@ -110,19 +108,20 @@ const Chat = () => {
               key={index}
               className={"chat " + (isMe ? "chat-end" : "chat-start")}
             >
-              <div className="chat-header capitalize">
+              <div className="chat-header capitalize text-sm sm:text-base">
                 {msg.firstName} {msg.lastName}
               </div>
               <div
-                className={`chat-bubble ${
-                  isMe
-                    ? theme === "dark"
-                      ? "bg-gray-700 text-white"
-                      : "bg-blue-200 text-gray-900"
-                    : theme === "dark"
-                    ? "bg-blue-400 text-gray-200"
-                    : "bg-gray-100 text-gray-800"
-                }`}
+                className={`chat-bubble text-sm sm:text-base max-w-[80%] sm:max-w-[70%] 
+                  ${
+                    isMe
+                      ? theme === "dark"
+                        ? "bg-gray-700 text-white"
+                        : "bg-blue-200 text-gray-900"
+                      : theme === "dark"
+                      ? "bg-blue-400 text-gray-200"
+                      : "bg-gray-100 text-gray-800"
+                  }`}
               >
                 {msg.text}
               </div>
@@ -132,7 +131,7 @@ const Chat = () => {
       </div>
 
       <div
-        className={`p-5 border-t flex items-center gap-2 transition-colors duration-300 
+        className={`p-3 sm:p-4 md:p-5 border-t flex items-center gap-2 transition-colors duration-300 
           ${theme === "dark" ? "border-gray-700" : "border-gray-300"}
         `}
       >
@@ -144,7 +143,7 @@ const Chat = () => {
               handleSendMessage();
             }
           }}
-          className={`flex-1 rounded p-2 outline-none transition-colors duration-300
+          className={`flex-1 rounded p-2 text-sm sm:text-base outline-none transition-colors duration-300
             ${
               theme === "dark"
                 ? "bg-gray-800 border border-gray-600 text-gray-200"
@@ -153,7 +152,7 @@ const Chat = () => {
         />
         <button
           onClick={handleSendMessage}
-          className={`btn transition-colors duration-300 ${
+          className={`btn text-sm sm:text-base px-3 sm:px-4 transition-colors duration-300 ${
             theme === "dark" ? "btn-primary" : "btn-secondary"
           }`}
         >
