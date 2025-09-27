@@ -14,6 +14,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
 import ContactUs from "./pages/ContactUs";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/refund" element={<RefundPolicy />} />
               <Route path="/contact" element={<ContactUs />} />
+              <Route path="/chat/:id" element={<Chat/>} />
             </Route>
           </Routes>
         </BrowserRouter>
