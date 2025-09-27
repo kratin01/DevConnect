@@ -27,11 +27,7 @@ const NavBar = () => {
   };
 
   return (
-    <div
-      className={`navbar px-4 sm:px-6 lg:px-8 ${
-        user ? "bg-base-200" : "bg-[#151A1F]"
-      }`}
-    >
+    <div className="navbar bg-base-200 px-4 sm:px-6 lg:px-8">
       <div className="flex-1">
         <Link to={user ? "/feed" : "/"} className="flex items-center gap-3">
           {/* Logo */}
