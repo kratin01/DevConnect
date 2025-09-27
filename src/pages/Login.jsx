@@ -29,7 +29,8 @@ const AuthForm = () => {
       });
 
       dispatch(addUser(res.data));
-      navigate(isLogin ? "/" : "/profile");
+      navigate(isLogin ? "/feed" : "/profile");
+      window.location.reload();
     } catch (error) {
       setError(error?.response?.data || "Something went wrong");
       console.error(error);
@@ -45,7 +46,9 @@ const AuthForm = () => {
               {isLogin ? "Welcome Back" : "Join DevConnect"}
             </h2>
             <p className="text-base-content/70 text-sm">
-              {isLogin ? "Sign in to your account" : "Create your developer profile"}
+              {isLogin
+                ? "Sign in to your account"
+                : "Create your developer profile"}
             </p>
           </div>
 
@@ -55,7 +58,12 @@ const AuthForm = () => {
                 {/* First Name */}
                 <div className="form-control w-full">
                   <label className="input input-bordered flex items-center gap-2 w-full focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="w-4 h-4 opacity-70"
+                    >
                       <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                     </svg>
                     <input
@@ -72,7 +80,12 @@ const AuthForm = () => {
                 {/* Last Name */}
                 <div className="form-control w-full">
                   <label className="input input-bordered flex items-center gap-2 w-full focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                      className="w-4 h-4 opacity-70"
+                    >
                       <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
                     </svg>
                     <input
@@ -91,7 +104,12 @@ const AuthForm = () => {
             {/* Email */}
             <div className="form-control w-full">
               <label className="input input-bordered flex items-center gap-2 w-full focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="w-4 h-4 opacity-70"
+                >
                   <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
                   <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
@@ -109,8 +127,17 @@ const AuthForm = () => {
             {/* Password */}
             <div className="form-control w-full">
               <label className="input input-bordered flex items-center gap-2 w-full focus-within:ring-2 focus-within:ring-primary focus-within:ring-offset-2 transition-all duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70">
-                  <path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.5.5 0 0 0 0 1V9a.5.5 0 0 0 1 0V4.5a.5.5 0 0 0-1 0V4Z" clipRule="evenodd" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  className="w-4 h-4 opacity-70"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.5.5 0 0 0 0 1V9a.5.5 0 0 0 1 0V4.5a.5.5 0 0 0-1 0V4Z"
+                    clipRule="evenodd"
+                  />
                 </svg>
                 <input
                   type={showPassword ? "text" : "password"}
@@ -171,8 +198,18 @@ const AuthForm = () => {
             {/* Error */}
             {error && (
               <div className="alert alert-error">
-                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 <span className="text-sm">{error}</span>
               </div>
@@ -180,12 +217,23 @@ const AuthForm = () => {
 
             {/* Submit Button */}
             <div className="pt-4">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="btn btn-primary w-full btn-lg shadow-lg hover:shadow-xl transition-all duration-200"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  />
                 </svg>
                 {isLogin ? "Sign In" : "Create Account"}
               </button>
