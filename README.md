@@ -9,9 +9,11 @@ DevConnect is a full-stack MERN platform designed to help developers discover, c
 <div align="center">
   <img src="/public/ss2.png" alt="Screenshot 1" width="300" style="margin: 5px;" />
   <img src="/public/ss3.png" alt="Screenshot 2" width="300" style="margin: 5px;" />
+    <img src="/public/ss4.png" alt="Screenshot 3" width="200" style="margin: 5px;" />
+  <img src="/public/ss5.png" alt="Screenshot 4" width="200" style="margin: 5px;" />
+  <img src="/public/ss6.png" alt="Screenshot 5" width="200" style="margin: 5px;" />
 
 </div>
-
 
 ---
 
