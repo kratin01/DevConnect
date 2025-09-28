@@ -6,6 +6,15 @@ DevConnect is a full-stack MERN platform designed to help developers discover, c
 
 ---
 
+<div align="center">
+  <img src="/public/ss2.png" alt="Screenshot 1" width="300" style="margin: 5px;" />
+  <img src="/public/ss3.png" alt="Screenshot 2" width="300" style="margin: 5px;" />
+
+</div>
+
+
+---
+
 ## 🚀 Features
 
 - **Secure Authentication**: JWT-based authentication (Login / Signup) with password hashing (bcrypt).
@@ -56,7 +65,8 @@ This project is built using a microservice architecture with a separate frontend
 
 ## ⚙️ Local Setup Instructions
 
-To run this project locally, you will need to set up both the backend and frontend services.
+To run this project locally, you will need to set up both the backend and frontend services.  
+Check out the [**Backend Repository**](https://github.com/kratin01/DevConnect-Backend) to set up the backend.
 
 ### 1. Clone the repository
 
