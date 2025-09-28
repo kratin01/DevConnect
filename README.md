@@ -1,12 +1,85 @@
-# React + Vite
+# 🔗DevConnect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DevConnect is a full-stack MERN platform designed to help developers discover, connect, and collaborate in real-time. It provides a seamless experience for finding peers, managing professional connections, and engaging in meaningful conversations.
 
-Currently, two official plugins are available:
+🌐 **Live Project:** [https://devconnect.services/](https://devconnect.services/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Secure Authentication**: JWT-based authentication (Login / Signup) with password hashing (bcrypt).
+- **User Profile Management**: Create and update a detailed developer profile
+- **Connection Management**: Send, receive, and manage connection requests.
+- **Email Notifications**: Get instant email notifications when a connection request is accepted, powered by Amazon SES.
+- **Daily Reminders**: A daily cron job sends an email at 8 AM with a summary of pending connection requests from the previous day.
+- **Real-time Chat**: Engage in one-on-one real-time conversations with your connections using Socket.io.
+- **RESTful API**: A clean, well-structured, and modular API.
+- **Production Ready**: Deployed on AWS EC2, with the frontend served by Nginx and the backend managed by PM2 for high availability.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+This project is built using a microservice architecture with a separate frontend and backend.
+
+### **Backend (Node.js / Express)**
+
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Real-time Communication**: Socket.io
+- **Authentication**: JSON Web Tokens (JWT), bcrypt
+- **Scheduled Jobs**: `node-cron`
+- **Email Service**: **Amazon SES** (Simple Email Service) via Nodemailer
+- **Process Manager**: PM2
+
+### **Frontend (React / Vite)**
+
+- **Framework**: React.js
+- **Build Tool**: Vite
+- **State Management**: **Redux Toolkit**
+- **Styling**: Tailwind CSS
+- **Component Library**: **DaisyUI**
+- **Routing**: React Router
+- **API Communication**: Axios
+- **Icons**: Lucide React
+- **Notifications**: React Hot Toast
+
+### **Deployment**
+
+- **Cloud Provider**: Amazon Web Services (AWS) EC2
+- **Web Server**: Nginx (for serving the frontend)
+- **Process Manager**: PM2 (for managing the Node.js backend)
+
+---
+
+## ⚙️ Local Setup Instructions
+
+To run this project locally, you will need to set up both the backend and frontend services.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kratin01/DevConnect
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd DevConnect
+npm install
+```
+
+### 🔐 Security
+
+- Password hashing using bcrypt
+- JWT-based authentication
+- CORS protection
+- Input validation
+- Rate limiting
+- Environment variable protection
+
+## 📜 License
+
+This project is open-source and available under the **MIT License**.
